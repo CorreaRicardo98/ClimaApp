@@ -7,19 +7,24 @@
 
 import UIKit
 
-class ClimaViewController: UIViewController,UITextFieldDelegate {
+class ClimaViewController: UIViewController,UITextFieldDelegate,ClimaManagerDelegado {
+
+    
 
     var climaManager = ClimaManager();
     
     
     
     
+    @IBOutlet weak var humedad: UILabel!
+    @IBOutlet weak var feels_like: UILabel!
     @IBOutlet weak var buscarTextField: UITextField!
     @IBOutlet weak var condicionClimaImageView: UIImageView!
     @IBOutlet weak var temperaturaLabel: UILabel!
     @IBOutlet weak var ciudadLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        climaManager.delegado = self
         buscarTextField.delegate = self
     }
     
@@ -55,6 +60,17 @@ class ClimaViewController: UIViewController,UITextFieldDelegate {
         ciudadLabel.text = buscarTextField.text!
         buscarTextField.text=""
     }
+    
+    func actualizarClima(clima: ClimaMOdelo) {
+        DispatchQueue.main.async {
+            self.ciudadLabel.text = clima.ciudadNombre
+            self.temperaturaLabel.text = clima.temperaturaString
+            self.condicionClimaImageView.image = UIImage(systemName: clima.CondicionClima)
+            self.humedad.text = "Humedad:\(clima.humedadString)%"
+            self.feels_like.text = "Sensación Termica \(clima.feel)°C"
+        }
+    }
+    
 
     
     

@@ -7,10 +7,13 @@
 
 import Foundation
 
+protocol ClimaManagerDelegado {
+    func actualizarClima(clima:ClimaMOdelo)
+}
 
 struct ClimaManager {
-    let  climaURL = "https://api.openweathermap.org/data/2.5/weather?appid=43c02b88939bc65afefdef7ff3b31822"
-    
+    let  climaURL = "https://api.openweathermap.org/data/2.5/weather?units=metric&lang=es&appid=43c02b88939bc65afefdef7ff3b31822"
+    var delegado: ClimaManagerDelegado?
     func buscarClima(ciudad: String){
         let UrlString = "\(climaURL)&q=\(ciudad)"
         
@@ -23,24 +26,51 @@ struct ClimaManager {
             //2 crear una url session
             let session = URLSession(configuration: .default)
             //3
-            let tarea = session.dataTask(with: url, completionHandler: manejador(datos:respuesta:error:))
+            let tarea = session.dataTask(with: url) { (datos, respuesta, error) in
+                if error != nil{
+                    print("Error al Obtener los Datos: \(error!)")
+                    return
+                }
+                
+                if let datosSeguros = datos {
+                    if let objClima =  self.parsearJSON(datosClima:datosSeguros){
+                        self.delegado?.actualizarClima(clima:objClima)
+                    }
+                }
+            }
             
             tarea.resume()
         }
     }
     
-    
-    func manejador(datos:Data?,respuesta:URLResponse?,error:Error?) -> Void{
-        if error != nil{
-            print("Error al Obtener los Datos: \(error!)")
-            return
+    func parsearJSON(datosClima:Data) -> ClimaMOdelo?{
+        let decodificador = JSONDecoder()
+        do {
+            let datosDecodificados = try decodificador.decode(ClimaDatos.self, from: datosClima)
+            
+            let name:String = datosDecodificados.name
+            let temp:Double = datosDecodificados.main.temp
+            let id:Int = datosDecodificados.weather[0].id;
+            let feels:Double = datosDecodificados.main.feels_like
+            let humedad:Double = datosDecodificados.main.humidity
+            
+            let ObjClimaModelo = ClimaMOdelo(temp: temp, ciudadNombre: name, id: id, feels_like: feels, humedad: humedad)
+            
+            print(ObjClimaModelo.CondicionClima)
+            return ObjClimaModelo
+            
+        }catch{
+            print(error.localizedDescription)
+            return nil
         }
         
-        if let datosSeguros = datos {
-            let datosString = String(data: datosSeguros, encoding: .utf8)
-            print(datosString!)
-        }
     }
+    
+   
+    
+    
+	
     
     
 }
+

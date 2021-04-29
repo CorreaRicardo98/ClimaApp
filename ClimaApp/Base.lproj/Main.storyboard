@@ -63,22 +63,22 @@
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WHt-xa-LIc" userLabel="SV TEMP">
-                                        <rect key="frame" x="96" y="172" width="202.5" height="135.5"/>
+                                        <rect key="frame" x="96" y="172" width="202.5" height="134.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vl0-NF-Btj">
-                                                <rect key="frame" x="0.0" y="0.0" width="111.5" height="135.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="111.5" height="134.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="90"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="º" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jpT-Iu-lVb" userLabel="º">
-                                                <rect key="frame" x="111.5" y="0.0" width="29" height="135.5"/>
+                                                <rect key="frame" x="111.5" y="0.0" width="29" height="134.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="81"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vb3-bk-eMA" userLabel="C">
-                                                <rect key="frame" x="140.5" y="0.0" width="62" height="135.5"/>
+                                                <rect key="frame" x="140.5" y="0.0" width="62" height="134.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="90"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -86,20 +86,35 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   Morelia   " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eBY-qq-2Hd">
-                                        <rect key="frame" x="83.5" y="308.5" width="227.5" height="76"/>
+                                        <rect key="frame" x="83.5" y="307.5" width="227.5" height="74.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="50"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sensación Termica: 25°C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCQ-bU-sgH">
+                                        <rect key="frame" x="45.5" y="383" width="303" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Humedad: 45%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PQ6-y5-RHS">
+                                        <rect key="frame" x="86.5" y="426" width="221.5" height="49.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RMy-GH-aU4">
-                                        <rect key="frame" x="19.5" y="385.5" width="355" height="417.5"/>
+                                        <rect key="frame" x="19.5" y="476.5" width="355" height="326.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="M6h-iU-bgM" firstAttribute="top" secondItem="OZ2-K8-qPv" secondAttribute="top" id="0JW-5B-qP2"/>
+                                    <constraint firstItem="PQ6-y5-RHS" firstAttribute="top" secondItem="PCQ-bU-sgH" secondAttribute="bottom" constant="20" id="39S-p4-taB"/>
                                     <constraint firstAttribute="trailing" secondItem="M6h-iU-bgM" secondAttribute="trailing" id="3nn-t5-VTM"/>
+                                    <constraint firstItem="eBY-qq-2Hd" firstAttribute="top" secondItem="WHt-xa-LIc" secondAttribute="bottom" constant="20" id="CSS-mi-WBX"/>
                                     <constraint firstItem="M6h-iU-bgM" firstAttribute="leading" secondItem="OZ2-K8-qPv" secondAttribute="leading" id="e5G-eA-54X"/>
+                                    <constraint firstItem="PCQ-bU-sgH" firstAttribute="centerX" secondItem="OZ2-K8-qPv" secondAttribute="centerX" id="oQD-Vs-dsp"/>
+                                    <constraint firstItem="PCQ-bU-sgH" firstAttribute="top" secondItem="eBY-qq-2Hd" secondAttribute="bottom" constant="20" id="pAT-iM-3bM"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -120,6 +135,8 @@
                         <outlet property="buscarTextField" destination="NeX-2y-fsj" id="CTq-wh-iHU"/>
                         <outlet property="ciudadLabel" destination="eBY-qq-2Hd" id="TU0-Jk-JiO"/>
                         <outlet property="condicionClimaImageView" destination="d31-xZ-qbm" id="Smy-lb-VZz"/>
+                        <outlet property="feels_like" destination="PCQ-bU-sgH" id="fqJ-hd-She"/>
+                        <outlet property="humedad" destination="PQ6-y5-RHS" id="Jmf-3D-WBG"/>
                         <outlet property="temperaturaLabel" destination="Vl0-NF-Btj" id="ahc-J9-VQr"/>
                     </connections>
                 </viewController>
